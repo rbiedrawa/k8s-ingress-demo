@@ -23,7 +23,7 @@ backend service.
   kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.45.0/deploy/static/provider/cloud/deploy.yaml
   ````
 
-* Check if the ingress controller pods started, run the following command:
+* Check if the ingress controller pods started.
   ```shell
   kubectl get pods -n ingress-nginx -l app.kubernetes.io/name=ingress-nginx --watch
   ```
@@ -47,7 +47,7 @@ backend service.
 
 * Stop skaffold dev (`CMD + C`).
 
-* Uninstall `NGINX Ingress Controller`
+* Uninstall `NGINX Ingress Controller`.
   ```shell
   kubectl delete all --all -n ingress-nginx
   kubectl delete ns ingress-nginx
