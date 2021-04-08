@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: k8s-ingress-demo
+  name: k8s-ingress-demo
+  namespace: k8s-ingress-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-ingress-demo
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: k8s-ingress-demo
+    spec:
+      containers:
+      - image: k8s-ingress-demo:0.0.1-SNAPSHOT
+        name: k8s-ingress-demo
+        lifecycle:
+          preStop:
+            exec:
+              command: [ "sh", "-c", "sleep 10" ]
+        resources:
+          requests:
+            cpu: 800m
+        ports:
+          - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8080
+          initialDelaySeconds: 300
+          timeoutSeconds: 20
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 8080
+

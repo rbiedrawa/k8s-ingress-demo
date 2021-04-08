@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: k8s-ingress-demo
+  name: k8s-demo-ingress
+spec:
+  rules:
+    - host: kubernetes.docker.internal
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: k8s-ingress-demo
+              servicePort: http

@@ -1,0 +1,16 @@
+apiVersion: skaffold/v2beta13
+kind: Config
+metadata:
+  name: k8s-ingress-demo
+build:
+  artifacts:
+  - image: rbiedrawa/k8s-ingress-demo
+    buildpacks:
+      builder: gcr.io/buildpacks/builder:v1
+deploy:
+  kubectl:
+    manifests:
+    - k8s/namespace.yml
+    - k8s/deployment.yaml
+    - k8s/service.yaml
+    - k8s/ingress.yml

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: k8s-ingress-demo
+  name: k8s-ingress-demo
+  labels:
+    app: k8s-ingress-demo
+spec:
+  selector:
+    app: k8s-ingress-demo
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
