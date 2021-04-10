@@ -45,7 +45,7 @@ backend service.
   curl http://kubernetes.docker.internal/hello
   ```
 
-* Stop skaffold dev (`CMD + C`).
+* Stop skaffold dev (`CTRL + C`).
 
 * Uninstall `NGINX Ingress Controller`.
   ```shell
