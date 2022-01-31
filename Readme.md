@@ -5,7 +5,7 @@ backend service.
 
 ## Getting Started
 
-### Prerequisite
+### Prerequisites
 
 * Java 11
 * Docker for Mac
